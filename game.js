@@ -25,6 +25,23 @@ $(document).keypress(function(){
       }
     });
 
+//Start The Game - Mobile
+    $(document).on({'touchstart' : function(){
+      if(started === false) {
+          $("#level-title").text("GET READY");
+          setTimeout(function() {
+          $("#level-title").text("Level " + 1);
+            }, 2500);
+          var start = "sounds/start.wav";
+          var audioStart = new Audio(start);
+          audioStart.play();
+          setTimeout(function() {
+              nextSequence();
+            }, 3500);
+          started = true;
+        }
+      }});
+
 //Track What The User Clicks and Make Sound
 $(".btn").click(function(){
     var userChosenColor = $(this).attr("id");
